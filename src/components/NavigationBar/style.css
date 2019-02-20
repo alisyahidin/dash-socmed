@@ -1,0 +1,11 @@
+.my-navbar {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.my-btn {
+  margin: 0.2rem 0;
+}
+
+.nav-link.active {
+  color: rgb(79, 145, 228) !important;
+}
