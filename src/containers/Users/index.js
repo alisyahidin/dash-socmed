@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 
+import withNavbar from '../../hoc/withNavbar'
 import Card from '../../components/Card/'
 import User from '../../components/User/'
 import './style.css'
@@ -35,4 +36,4 @@ class Users extends Component {
   }
 }
 
-export default Users
+export default withNavbar(Users)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 
+import withNavbar from '../../hoc/withNavbar'
 import Card from '../../components/Card/'
 import Profile from '../../components/Card/Profile/'
 import Post from '../../components/Card/Post/'
@@ -50,4 +51,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default withNavbar(Home)

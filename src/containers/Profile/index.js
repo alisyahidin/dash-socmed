@@ -9,6 +9,7 @@ import {
   Image
 } from 'react-bootstrap'
 
+import withNavbar from '../../hoc/withNavbar'
 import ProfileCard from '../../components/Card/Profile/'
 import PostCard from '../../components/Card/Post/'
 import Card from '../../components/Card/'
@@ -88,4 +89,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile
+export default withNavbar(Profile)
