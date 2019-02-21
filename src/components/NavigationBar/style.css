@@ -6,6 +6,10 @@
   margin: 0.2rem 0;
 }
 
+#menu:hover {
+  cursor: pointer !important;
+}
+
 .nav-link__menu {
   display: flex !important;
   align-items: center;

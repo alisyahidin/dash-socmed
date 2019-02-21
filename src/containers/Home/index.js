@@ -25,7 +25,7 @@ class Home extends Component {
       <Container>
         <Row>
           <Col md={3}>
-            <Profile name="Ali Syahidin" email="alisyahidin@gmail.com" />
+            <Profile name="Ali Syahidin" username="alisyahidin" />
           </Col>
           <Col md={6}>
             <Card>

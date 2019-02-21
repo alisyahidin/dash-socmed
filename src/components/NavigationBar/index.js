@@ -5,7 +5,8 @@ import {
   Container,
   Nav,
   Navbar,
-  Button
+  Button,
+  Dropdown
 } from 'react-bootstrap'
 import {
   MdHome,
@@ -14,6 +15,28 @@ import {
 } from "react-icons/md"
 import './style.css'
 
+class ProfileMenu extends Component {
+  render() {
+    const { children, onClick } = this.props
+
+    return (
+      <span
+        id="menu"
+        onClick={onClick}
+        className="nav-link mr-sm-2"
+      >
+        {children}
+      </span>
+    )
+  }
+}
+
+const ProfileMenuItem = ({onClick, children}) => (
+  <Link to="/profile" onClick={onClick} className="dropdown-item">
+    {children}
+  </Link>
+)
+
 class NavigationBar extends Component {
   render() {
     const { pathname } = this.props.location
@@ -21,17 +44,36 @@ class NavigationBar extends Component {
       <Navbar bg="white" variant="light" className="my-navbar">
         <Container>
           <Nav className="mr-auto">
-            <Link to="/" className={classNames("nav-link nav-link__menu", { active: pathname === '/' })}>
+            <Link
+              to="/"
+              className={classNames(
+                "nav-link nav-link__menu",
+                { active: pathname === '/' }
+              )}
+            >
               <MdHome className="mr-sm-1" /> Home
             </Link>
-            <Link to="/users" className={classNames("nav-link nav-link__menu", { active: pathname === '/users' })}>
+            <Link
+              to="/users"
+              className={classNames(
+                "nav-link nav-link__menu",
+                { active: pathname === '/users' }
+              )}
+            >
               <MdGroup className="mr-sm-1" /> Users
             </Link>
           </Nav>
           <Nav className="ml-auto">
-            <Link to="/profile" className={classNames("nav-link mr-sm-2", { active: pathname === '/profile' })}>
-              Ali Syahidin <MdKeyboardArrowDown />
-            </Link>
+            <Dropdown>
+              <Dropdown.Toggle as={ProfileMenu} id="profile-menu">
+                Ali Syahidin <MdKeyboardArrowDown />
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item as={ProfileMenuItem}>Profile</Dropdown.Item>
+                <Dropdown.Item>Logout</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
             <Button className="my-btn" variant="primary" size="sm">
               Post
             </Button>
