@@ -6,6 +6,11 @@
   margin: 0.2rem 0;
 }
 
+.nav-link__menu {
+  display: flex !important;
+  align-items: center;
+}
+
 .nav-link.active {
   color: rgb(79, 145, 228) !important;
 }
