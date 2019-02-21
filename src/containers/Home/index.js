@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col, Form } from 'react-bootstrap'
+import { Container, Row, Col, Form } from 'react-bootstrap'
 
 import Card from '../../components/Card/'
 import Profile from '../../components/Card/Profile/'
@@ -22,23 +22,25 @@ const posts = [
 class Home extends Component {
   render() {
     return (
-      <Row>
-        <Col md={3}>
-          <Profile name="Ali Syahidin" email="alisyahidin@gmail.com" />
-        </Col>
-        <Col md={6}>
-          <Card>
-            {posts.map((data, index) => (
-              <Post key={index} {...data} />
-            ))}
-          </Card>
-        </Col>
-        <Col md={3}>
-          <Card align="center">
-            <Form.Control placeholder="Search" />
-          </Card>
-        </Col>
-      </Row>
+      <Container>
+        <Row>
+          <Col md={3}>
+            <Profile name="Ali Syahidin" email="alisyahidin@gmail.com" />
+          </Col>
+          <Col md={6}>
+            <Card>
+              {posts.map((data, index) => (
+                <Post key={index} {...data} />
+              ))}
+            </Card>
+          </Col>
+          <Col md={3}>
+            <Card align="center">
+              <Form.Control placeholder="Search" />
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 }

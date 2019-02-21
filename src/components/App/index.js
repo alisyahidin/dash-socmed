@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { Container } from 'react-bootstrap'
 import './style.css'
 
 import Home from '../../containers/Home/'
@@ -15,11 +14,11 @@ class App extends Component {
       <Router>
         <>
           <NavigationBar />
-          <Container className="main-content">
+          <div className="main-content">
             <Route path="/" exact component={Home} />
             <Route path="/profile" component={Profile} />
             <Route path="/users" component={Users} />
-          </Container>
+          </div>
         </>
       </Router>
     )
