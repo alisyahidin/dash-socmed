@@ -1,0 +1,21 @@
+.my-card {
+  border: none !important;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.my-card__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-card__body--left {
+  align-items: flex-start;
+}
+
+.my-card__body--center {
+  align-items: center;
+}
+
+.my-card__body--right {
+  align-items: flex-end;
+}
