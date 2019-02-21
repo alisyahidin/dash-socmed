@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 
 import Card from '../../components/Card/'
-import UserList from '../../components/UserList/'
+import User from '../../components/User/'
 import './style.css'
 
 const users = [
@@ -25,7 +25,7 @@ class Users extends Component {
           <Col md={{ span: 10, offset: 1 }}>
             <Card align="left">
               {users.map((user, index) => (
-                <UserList key={index} {...user} />
+                <User key={index} {...user} />
               ))}
             </Card>
           </Col>

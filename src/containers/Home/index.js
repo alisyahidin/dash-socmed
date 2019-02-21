@@ -9,12 +9,17 @@ import './style.css'
 const posts = [
   {
     userId: 1,
-    title: 'sad',
+    title: 'Title 1',
     body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus accusantium, eos! Quibusdam molestiae, voluptatem veritatis odit ducimus ratione delectus dolorum placeat et, ea repellendus sit obcaecati sint hic quis qui!'
   },
   {
     userId: 1,
-    title: 'asdlj laksdj',
+    title: 'Lorem Ipsum',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus accusantium, eos! Quibusdam molestiae, voluptatem veritatis odit ducimus ratione delectus dolorum placeat et, ea repellendus sit obcaecati sint hic quis qui!'
+  },
+  {
+    userId: 1,
+    title: 'Learn ReactJS',
     body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus accusantium, eos! Quibusdam molestiae, voluptatem veritatis odit ducimus ratione delectus dolorum placeat et, ea repellendus sit obcaecati sint hic quis qui!'
   },
 ]

@@ -15,6 +15,6 @@
   align-items: center;
 }
 
-.nav-link.active {
+.nav-link__menu.active {
   color: rgb(79, 145, 228) !important;
 }
