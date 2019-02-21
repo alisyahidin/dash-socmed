@@ -24,25 +24,29 @@ const Post = ({author, title, body}) => (
               @{author.username}
             </span>
           </Link>
-          <div className="post__body mb-sm-2">
+          <div className="post__body">
+            <div className="mb-sm-2">
+              <h5 className="mb-sm-1">{title}</h5>
+              <p>{body}</p>
+            </div>
+            <span className="d-flex align-items-center">
+              <FaRegComment className="mr-sm-1" /> 5
+            </span>
+          </div>
+        </Col>
+      </>
+    )}
+    {author.username === 'alisyahidin' && (
+      <Col>
+        <div className="post__body">
+          <div className="mb-sm-2">
             <h5 className="mb-sm-1">{title}</h5>
             <p>{body}</p>
           </div>
           <span className="d-flex align-items-center">
             <FaRegComment className="mr-sm-1" /> 5
           </span>
-        </Col>
-      </>
-    )}
-    {author.username === 'alisyahidin' && (
-      <Col>
-        <div className="post__body mb-sm-2">
-          <h5 className="mb-sm-1">{title}</h5>
-          <p>{body}</p>
         </div>
-        <span className="d-flex align-items-center">
-          <FaRegComment className="mr-sm-1" /> 5
-        </span>
       </Col>
     )}
   </Row>

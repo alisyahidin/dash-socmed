@@ -6,13 +6,13 @@ import {
   Tabs,
   Tab,
   Nav,
-  Image
 } from 'react-bootstrap'
 
 import withNavbar from '../../hoc/withNavbar'
 import ProfileCard from '../../components/Card/Profile/'
 import PostCard from '../../components/Card/Post/'
 import Card from '../../components/Card/'
+import Image from '../../components/Image/'
 import './style.css'
 
 import img from '../../assets/images/placeholder.png'

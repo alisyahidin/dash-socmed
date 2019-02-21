@@ -11,8 +11,17 @@
   text-decoration: none;
 }
 
+.post__body {
+  transition: all 300ms ease-out;
+}
+
 .post__body:hover {
   cursor: pointer;
+  color: #666;
+}
+
+.post__body:hover > .post__body h5 {
+  color: #F0F0F0;
 }
 
 .author__username {
