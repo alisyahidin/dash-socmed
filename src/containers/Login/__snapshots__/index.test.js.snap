@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render <Login /> correctly 1`] = `
+<div
+  className="login"
+>
+  <div
+    className="h-75 d-flex align-items-center justify-content-center"
+  >
+    <ForwardRef(Bootstrap(Form))
+      className="text-center w-25 px-5 d-flex flex-column justify-content-center"
+    >
+      <ForwardRef(Bootstrap(FormGroup))
+        controlId="formPlaintextEmail"
+      >
+        <ForwardRef(ContextTransform)
+          placeholder="Username e.g: Bret"
+          type="text"
+        />
+      </ForwardRef(Bootstrap(FormGroup))>
+      <ForwardRef(Bootstrap(FormGroup))
+        controlId="formPlaintextPassword"
+      >
+        <ForwardRef(ContextTransform)
+          placeholder="Email e.g: Sincere@april.biz"
+          type="email"
+        />
+      </ForwardRef(Bootstrap(FormGroup))>
+      <ForwardRef(Bootstrap(Button))
+        className="mt-sm-2 mx-auto"
+        variant="primary"
+      >
+        Login
+      </ForwardRef(Bootstrap(Button))>
+    </ForwardRef(Bootstrap(Form))>
+  </div>
+  <div
+    className="h-25 d-flex align-items-center justify-content-center"
+  >
+    Copyright © 
+    2019
+  </div>
+</div>
+`;

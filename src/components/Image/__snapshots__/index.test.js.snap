@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render <Image /> correctly 1`] = `
+<Link
+  replace={false}
+  to="#"
+>
+  <ForwardRef(Bootstrap(Image)) />
+</Link>
+`;

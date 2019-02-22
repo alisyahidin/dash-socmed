@@ -1,9 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme'
 import Home from './index'
 
-it('render Home container', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<Home />, div)
-  ReactDOM.unmountComponentAtNode(div)
+it('render <Home /> correctly', () => {
+  const component = shallow(<Home />)
+
+  expect(component).toMatchSnapshot()
 })

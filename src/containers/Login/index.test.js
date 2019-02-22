@@ -1,9 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme'
 import Login from './index'
 
-it('render Login container', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<Login />, div)
-  ReactDOM.unmountComponentAtNode(div)
+it('render <Login /> correctly', () => {
+  const component = shallow(<Login />)
+
+  expect(component).toMatchSnapshot()
 })

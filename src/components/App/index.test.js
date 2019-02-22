@@ -1,9 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme'
 import App from './index'
 
-it('render App component', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<App />, div)
-  ReactDOM.unmountComponentAtNode(div)
+it('render <App /> correctly', () => {
+  const component = shallow(<App />)
+
+  expect(component).toMatchSnapshot()
 })

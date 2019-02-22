@@ -1,9 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme'
 import Image from './index'
 
-it('render Image component', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<Image />, div)
-  ReactDOM.unmountComponentAtNode(div)
+it('render <Image /> correctly', () => {
+  const component = shallow(<Image />)
+
+  expect(component).toMatchSnapshot()
 })

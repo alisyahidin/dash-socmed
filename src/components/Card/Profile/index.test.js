@@ -1,9 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme'
 import Profile from './index'
 
-it('render Profile component', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<Profile />, div)
-  ReactDOM.unmountComponentAtNode(div)
+it('render <Profile /> correctly', () => {
+  const component = shallow(<Profile />)
+
+  expect(component).toMatchSnapshot()
 })

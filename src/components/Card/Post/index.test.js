@@ -1,9 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme'
 import Post from './index'
 
-it('render Post component', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<Post />, div)
-  ReactDOM.unmountComponentAtNode(div)
+it('render <Post /> correctly', () => {
+  const component = shallow(<Post />)
+
+  expect(component).toMatchSnapshot()
 })

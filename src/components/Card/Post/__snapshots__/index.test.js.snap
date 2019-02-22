@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render <Post /> correctly 1`] = `
+<ForwardRef(Bootstrap(Row))
+  className="post mx-sm-1"
+>
+  <ForwardRef(Bootstrap(Col))
+    className="p-sm-0 d-flex justify-content-center align-items-start"
+    md={2}
+  >
+    <Link
+      replace={false}
+      to="/profile"
+    >
+      <withAvatarConfig
+        className="mr-sm-2"
+        name="Guest"
+        round={true}
+        size="60px"
+      />
+    </Link>
+  </ForwardRef(Bootstrap(Col))>
+  <ForwardRef(Bootstrap(Col))
+    className="p-sm-0"
+    md={10}
+  >
+    <Link
+      className="post__author d-inline-block mb-sm-2"
+      replace={false}
+      to="/profile"
+    >
+      <b
+        className="mr-sm-2"
+      >
+        Guest
+      </b>
+      <span
+        className="author__username mr-sm-2"
+      >
+        @
+        guest
+      </span>
+    </Link>
+    <div
+      className="post__body"
+    >
+      <div
+        className="mb-sm-2"
+      >
+        <h5
+          className="mb-sm-1"
+        >
+          Title
+        </h5>
+        <p>
+          Post
+        </p>
+      </div>
+      <span
+        className="d-flex align-items-center"
+      >
+        <FaRegComment
+          className="mr-sm-1"
+        />
+         5
+      </span>
+    </div>
+  </ForwardRef(Bootstrap(Col))>
+</ForwardRef(Bootstrap(Row))>
+`;

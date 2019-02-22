@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render <Profile /> correctly 1`] = `
+<Card
+  align="center"
+>
+  <withAvatarConfig
+    className="profile-avatar"
+    name="Guest"
+    round={true}
+    size="70px"
+  />
+  <h4>
+    Guest
+  </h4>
+  <p
+    className="profile-username"
+  >
+    @
+    guest
+  </p>
+</Card>
+`;

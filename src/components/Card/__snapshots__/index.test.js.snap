@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render <Card /> correctly 1`] = `
+<ForwardRef(Bootstrap(Card))
+  className="my-card"
+>
+  <ForwardRef(Bootstrap(CardBody))
+    className="my-card__body my-card__body--center"
+  >
+    Test
+  </ForwardRef(Bootstrap(CardBody))>
+</ForwardRef(Bootstrap(Card))>
+`;
