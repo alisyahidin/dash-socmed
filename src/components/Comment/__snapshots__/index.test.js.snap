@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render <Comment /> correctly 1`] = `
+<ForwardRef(Bootstrap(Row))
+  className="w-100 m-0 mb-2"
+>
+  <ForwardRef(Bootstrap(Col))
+    className="p-0 d-flex align-items-center justify-content-center"
+    md={1}
+  >
+    <withAvatarConfig
+      name="Ali Syahidin"
+      round={true}
+      size="35px"
+    />
+  </ForwardRef(Bootstrap(Col))>
+  <ForwardRef(Bootstrap(Col))
+    className="p-0 pl-2 d-flex flex-column"
+  >
+    <Link
+      className="comment__author"
+      replace={false}
+      to="/users/3"
+    >
+      @username
+    </Link>
+    <p
+      className="comment__body"
+    >
+      First Comment !!
+    </p>
+  </ForwardRef(Bootstrap(Col))>
+</ForwardRef(Bootstrap(Row))>
+`;
+
+exports[`render <CommentForm /> correctly 1`] = `
+<ForwardRef(Bootstrap(FormRow))
+  className="w-100 m-0"
+>
+  <ForwardRef(Bootstrap(Col))
+    className="p-0 d-flex align-items-center justify-content-center"
+    md={1}
+  >
+    <withAvatarConfig
+      name="Ali Syahidin"
+      round={true}
+      size="35px"
+    />
+  </ForwardRef(Bootstrap(Col))>
+  <ForwardRef(Bootstrap(Col))
+    md={9}
+  >
+    <ForwardRef(ContextTransform)
+      placeholder="Write comment . . ."
+    />
+  </ForwardRef(Bootstrap(Col))>
+  <ForwardRef(Bootstrap(Col))
+    className="d-flex align-items-center"
+  >
+    <ForwardRef(Bootstrap(Button))
+      className="w-100"
+      type="submit"
+      variant="outline-primary"
+    >
+      Send
+    </ForwardRef(Bootstrap(Button))>
+  </ForwardRef(Bootstrap(Col))>
+</ForwardRef(Bootstrap(FormRow))>
+`;

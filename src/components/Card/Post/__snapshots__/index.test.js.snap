@@ -1,54 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render <Post /> correctly 1`] = `
-<ForwardRef(Bootstrap(Row))
-  className="post mx-sm-1"
->
-  <ForwardRef(Bootstrap(Col))
-    className="p-sm-0 d-flex flex-column justify-content-center align-items-start"
+<Fragment>
+  <ForwardRef(Bootstrap(Row))
+    className="post mx-sm-1"
   >
-    <a
-      href="#"
+    <ForwardRef(Bootstrap(Col))
+      className="p-sm-0 d-flex flex-column justify-content-center align-items-start"
     >
       <h5
-        className="mb-sm-2"
+        className="post__title mb-sm-2"
+        onClick={[Function]}
       >
         Title
       </h5>
-    </a>
-    <span>
-      by - 
-      <Link
-        className="post__author d-inline-block mb-sm-1"
-        replace={false}
-        to="/profile"
+      <span>
+        by - 
+        <Link
+          className="author d-inline-block mb-sm-1"
+          replace={false}
+          to="/profile"
+        >
+          <b
+            className="mr-sm-1"
+          >
+            Guest
+          </b>
+          <span
+            className="author__username mr-sm-2"
+          >
+            @
+            guest
+          </span>
+        </Link>
+      </span>
+      <div
+        className="post__body"
+        onClick={[Function]}
       >
-        <b
-          className="mr-sm-2"
+        <p
+          className="mb-sm-2"
         >
-          Guest
-        </b>
+          Post
+        </p>
         <span
-          className="author__username mr-sm-2"
+          className="d-flex align-items-center"
         >
-          @
-          guest
+          <FaRegComment
+            className="mr-sm-1"
+          />
+           5
         </span>
-      </Link>
-    </span>
-    <p
-      className="mb-sm-2"
-    >
-      Post
-    </p>
-    <span
-      className="d-flex align-items-center"
-    >
-      <FaRegComment
-        className="mr-sm-1"
-      />
-       5
-    </span>
-  </ForwardRef(Bootstrap(Col))>
-</ForwardRef(Bootstrap(Row))>
+      </div>
+    </ForwardRef(Bootstrap(Col))>
+  </ForwardRef(Bootstrap(Row))>
+  <PostDetail
+    open={false}
+    toggleOpen={[Function]}
+  />
+</Fragment>
 `;

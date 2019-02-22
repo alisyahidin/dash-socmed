@@ -1,0 +1,28 @@
+.post {
+  padding: 1rem 0rem;
+  border-bottom: 1px solid rgba(196, 222, 255, 0.5);
+  &:last-child {
+    border-bottom: none;
+  }
+  &__title,
+  &__body {
+    transition: all 300ms ease;
+    &:hover {
+      cursor: pointer;
+      color: #555;
+    }
+  }
+}
+
+.author {
+  &:hover {
+    text-decoration: none;
+  }
+  &__username {
+    transform: scale(0.8);
+    color: #888;
+  }
+  &__username:hover {
+    color: #666;
+  }
+}
