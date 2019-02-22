@@ -8006,7 +8006,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^3.0.0"
 
-prop-types@^15.6.1:
+prop-types@^15.6.0, prop-types@^15.6.1:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8359,6 +8359,14 @@ react-router-dom@^4.3.1:
     prop-types "^15.6.1"
     react-router "^4.3.1"
     warning "^4.0.1"
+
+react-router-enzyme-context@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-router-enzyme-context/-/react-router-enzyme-context-1.2.0.tgz#7aa11c80e23278fa31f8a29845f7b37760d99350"
+  integrity sha512-z6+PQ6sdOHsRk9u4gSfsbeEuWZeogffrmgHo4dFXX5t/K8mUFftZBJQ+imzL3f3T6rkIIp+J7I0CeREYgcqe9A==
+  dependencies:
+    history "^4.7.2"
+    prop-types "^15.6.0"
 
 react-router@^4.3.1:
   version "4.3.1"

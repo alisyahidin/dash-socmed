@@ -21,7 +21,8 @@ Card.propTypes = {
 }
 
 Card.defaultProps = {
-  align: 'center'
+  align: 'center',
+  children: 'Card'
 }
 
 export default Card

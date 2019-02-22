@@ -7,7 +7,7 @@ exports[`render <Card /> correctly 1`] = `
   <ForwardRef(Bootstrap(CardBody))
     className="my-card__body my-card__body--center"
   >
-    Test
+    Card
   </ForwardRef(Bootstrap(CardBody))>
 </ForwardRef(Bootstrap(Card))>
 `;
