@@ -5,7 +5,7 @@ exports[`render <Profile /> correctly 1`] = `
   align="center"
 >
   <withAvatarConfig
-    className="profile-avatar"
+    className="profile-card__avatar"
     name="Guest"
     round={true}
     size="70px"
@@ -14,7 +14,7 @@ exports[`render <Profile /> correctly 1`] = `
     Guest
   </h4>
   <p
-    className="profile-username"
+    className="profile-card__username"
   >
     @
     guest

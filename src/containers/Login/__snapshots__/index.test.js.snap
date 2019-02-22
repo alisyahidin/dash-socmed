@@ -2,7 +2,7 @@
 
 exports[`render <Login /> correctly 1`] = `
 <div
-  className="login"
+  className="login-page"
 >
   <div
     className="h-75 d-flex align-items-center justify-content-center"
