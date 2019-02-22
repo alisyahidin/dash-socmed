@@ -4,7 +4,7 @@ exports[`render <User /> correctly 1`] = `
 <Link
   className="user d-flex align-items-center my-sm-2"
   replace={false}
-  to="/profile"
+  to="/users/undefined"
 >
   <withAvatarConfig
     className="mr-sm-2"

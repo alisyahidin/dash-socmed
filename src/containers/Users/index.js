@@ -26,7 +26,7 @@ class Users extends Component {
           <Col md={{ span: 10, offset: 1 }}>
             <Card align="left">
               {users.map((user, index) => (
-                <User key={index} {...user} />
+                <User key={index} id={index+1} {...user} />
               ))}
             </Card>
           </Col>

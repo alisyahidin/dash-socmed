@@ -30,20 +30,41 @@ const posts = [
   },
 ]
 
+const users = [
+  {
+    name: 'Guest 1',
+    username: 'guest_1'
+  },
+  {
+    name: 'Guest 2',
+    username: 'guest_2'
+  },
+  {
+    name: 'Guest 3',
+    username: 'guest_3'
+  },
+]
+
 class Profile extends Component {
   render() {
+    const { id } = this.props.match.params
+    const author = {
+      name: users[id-1] ? users[id-1].name : 'Ali Syahidin',
+      username: users[id-1] ? users[id-1].username : 'alisyahidin',
+    }
+
     return (
       <Container>
         <Row>
           <Col md={4}>
-            <ProfileCard name="Ali Syahidin" username="alisyahidin" />
+            <ProfileCard name={author.name} username={author.username} />
           </Col>
           <Col md={8}>
             <Card align="left" className="mb-sm-1">
               <Tabs defaultActiveKey="posts" className="profile-tabs m-sm-0">
                 <Tab eventKey="posts" title="Posts">
                   {posts.map((data, index) => (
-                    <PostCard author={{ name: 'Ali Syahidin', username: 'alisyahidin'}} key={index} {...data} />
+                    <PostCard author={author} key={index} {...data} />
                   ))}
                 </Tab>
                 <Tab eventKey="photos" title="Photos">

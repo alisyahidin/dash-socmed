@@ -2,22 +2,32 @@
 
 exports[`render <App /> correctly 1`] = `
 <BrowserRouter>
-  <Route
-    component={[Function]}
-    exact={true}
-    path="/"
-  />
-  <Route
-    component={[Function]}
-    path="/profile"
-  />
-  <Route
-    component={[Function]}
-    path="/users"
-  />
-  <Route
-    component={[Function]}
-    path="/login"
-  />
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      path="/profile"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/users"
+    />
+    <Route
+      component={[Function]}
+      path="/users/:id"
+    />
+    <Route
+      component={[Function]}
+      path="/login"
+    />
+    <Route
+      component={[Function]}
+    />
+  </Switch>
 </BrowserRouter>
 `;
