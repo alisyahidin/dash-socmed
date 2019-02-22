@@ -1,0 +1,17 @@
+.my-card {
+  border: none !important;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  &__body {
+    display: flex;
+    flex-direction: column;
+    &--left {
+      align-items: flex-start;
+    }
+    &--center {
+      align-items: center;
+    }
+    &--right {
+      align-items: flex-end;
+    }
+  }
+}

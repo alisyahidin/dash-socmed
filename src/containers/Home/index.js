@@ -6,7 +6,6 @@ import Card from '../../components/Card/'
 import PostForm from '../../components/PostForm/'
 import Profile from '../../components/Card/Profile/'
 import Post from '../../components/Card/Post/'
-import './style.css'
 
 const posts = [
   {

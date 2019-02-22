@@ -4,7 +4,6 @@ import { Container, Row, Col } from 'react-bootstrap'
 import withNavbar from '../../hoc/withNavbar'
 import Card from '../../components/Card/'
 import User from '../../components/User/'
-import './style.css'
 
 const users = [
   {

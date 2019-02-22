@@ -12,7 +12,7 @@ import {
   MdGroup,
   MdKeyboardArrowDown
 } from "react-icons/md"
-import './style.css'
+import './style.scss'
 
 class ProfileMenu extends Component {
   render() {

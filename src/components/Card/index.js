@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Card as BsCard } from 'react-bootstrap'
-import './style.css'
+import './style.scss'
 
 const Card = ({children, className, align}) => (
   <BsCard className={classNames("my-card", className)}>

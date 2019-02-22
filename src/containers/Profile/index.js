@@ -13,7 +13,7 @@ import ProfileCard from '../../components/Card/Profile/'
 import PostCard from '../../components/Card/Post/'
 import Card from '../../components/Card/'
 import Image from '../../components/Image/'
-import './style.css'
+import './style.scss'
 
 import img from '../../assets/images/placeholder.png'
 

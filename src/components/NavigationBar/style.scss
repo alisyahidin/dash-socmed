@@ -11,11 +11,12 @@
   cursor: pointer !important;
 }
 
-.nav-link__menu {
-  display: flex !important;
-  align-items: center;
-}
-
-.nav-link__menu.active {
-  color: rgb(79, 145, 228) !important;
+.nav-link {
+  &__menu {
+    display: flex !important;
+    align-items: center;
+    &.active {
+      color: rgb(79, 145, 228) !important;
+    }
+  }
 }

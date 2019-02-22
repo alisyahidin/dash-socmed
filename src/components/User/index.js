@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Avatar from 'react-avatar'
-import './style.css'
+import './style.scss'
 
 const User = ({name, id}) =>(
   <Link to={`/users/${id}`} className="user d-flex align-items-center my-sm-2">

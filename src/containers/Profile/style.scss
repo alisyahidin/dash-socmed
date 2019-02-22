@@ -1,10 +1,9 @@
 .profile-tabs {
   width: 100%;
   border-bottom: 1px solid #dee2e6 !important;
-}
-
-.profile-tabs > a {
-  color: rgba(0, 0, 0, 0.5);
+  & > a {
+    color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 .tab-content {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Button, Form } from 'react-bootstrap'
-import './style.css'
+import './style.scss'
 
 class Login extends Component {
   render() {
     return (
-      <div className="login">
+      <div className="login-page">
         <div className="h-75 d-flex align-items-center justify-content-center">
           <Form className="text-center w-25 px-5 d-flex flex-column justify-content-center">
 
