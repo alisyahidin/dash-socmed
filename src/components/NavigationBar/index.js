@@ -5,7 +5,6 @@ import {
   Container,
   Nav,
   Navbar,
-  Button,
   Dropdown
 } from 'react-bootstrap'
 import {
@@ -74,9 +73,6 @@ class NavigationBar extends Component {
                 <Dropdown.Item>Logout</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <Button className="my-btn" variant="primary" size="sm">
-              Post
-            </Button>
           </Nav>
         </Container>
       </Navbar>

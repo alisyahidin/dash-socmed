@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Form } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 
 import withNavbar from '../../hoc/withNavbar'
 import Card from '../../components/Card/'
+import PostForm from '../../components/PostForm/'
 import Profile from '../../components/Card/Profile/'
 import Post from '../../components/Card/Post/'
 import './style.css'
@@ -30,19 +31,17 @@ class Home extends Component {
     return (
       <Container>
         <Row>
-          <Col md={3}>
+          <Col md={4}>
             <Profile name="Ali Syahidin" username="alisyahidin" />
+            <Card className="mt-sm-4">
+              <PostForm />
+            </Card>
           </Col>
-          <Col md={6}>
+          <Col md={8}>
             <Card>
               {posts.map((data, index) => (
                 <Post key={index} {...data} />
               ))}
-            </Card>
-          </Col>
-          <Col md={3}>
-            <Card align="center">
-              <Form.Control placeholder="Search" />
             </Card>
           </Col>
         </Row>

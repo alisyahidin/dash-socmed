@@ -8,11 +8,12 @@ class Login extends Component {
       <div className="login">
         <div className="h-75 d-flex align-items-center justify-content-center">
           <Form className="text-center w-25 px-5 d-flex flex-column justify-content-center">
-            <Form.Group controlId="formPlaintextEmail">
+
+            <Form.Group controlId="username">
               <Form.Control type="text" placeholder="Username e.g: Bret" />
             </Form.Group>
 
-            <Form.Group controlId="formPlaintextPassword">
+            <Form.Group controlId="email">
               <Form.Control type="email" placeholder="Email e.g: Sincere@april.biz" />
             </Form.Group>
 

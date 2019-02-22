@@ -64,7 +64,7 @@ class Profile extends Component {
               <Tabs defaultActiveKey="posts" className="profile-tabs m-sm-0">
                 <Tab eventKey="posts" title="Posts">
                   {posts.map((data, index) => (
-                    <PostCard author={author} key={index} {...data} />
+                    <PostCard profileDisabled author={author} key={index} {...data} />
                   ))}
                 </Tab>
                 <Tab eventKey="photos" title="Photos">

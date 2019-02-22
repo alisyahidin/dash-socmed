@@ -11,7 +11,7 @@ exports[`render <Login /> correctly 1`] = `
       className="text-center w-25 px-5 d-flex flex-column justify-content-center"
     >
       <ForwardRef(Bootstrap(FormGroup))
-        controlId="formPlaintextEmail"
+        controlId="username"
       >
         <ForwardRef(ContextTransform)
           placeholder="Username e.g: Bret"
@@ -19,7 +19,7 @@ exports[`render <Login /> correctly 1`] = `
         />
       </ForwardRef(Bootstrap(FormGroup))>
       <ForwardRef(Bootstrap(FormGroup))
-        controlId="formPlaintextPassword"
+        controlId="email"
       >
         <ForwardRef(ContextTransform)
           placeholder="Email e.g: Sincere@april.biz"

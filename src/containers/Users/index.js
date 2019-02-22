@@ -8,13 +8,13 @@ import './style.css'
 
 const users = [
   {
-    name: 'Ali'
+    name: 'Guest_1'
   },
   {
-    name: 'Ali'
+    name: 'Guest_2'
   },
   {
-    name: 'Ali'
+    name: 'Guest_3'
   },
 ]
 
