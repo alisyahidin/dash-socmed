@@ -84,10 +84,10 @@ const fetchUserEpic = action$ => {
     .ofType(FETCH_USER)
     .pipe(
       delay(3000),
-      map(user => {
+      map(actionType => {
         return fetchUserSuccess(users)
       }),
-      catchError(users => of(fetchUserFailure('Cannot fetch user')))
+      catchError(() => of(fetchUserFailure('Cannot fetch user')))
     )
 }
 
