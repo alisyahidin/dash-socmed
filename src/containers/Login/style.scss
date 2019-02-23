@@ -1,3 +1,13 @@
 .login-page {
   height: 100vh;
 }
+
+.message {
+  transition: 300ms all ease;
+  &--show {
+    opacity: 1;
+  }
+  &--hide {
+    opacity: 0;
+  }
+}
