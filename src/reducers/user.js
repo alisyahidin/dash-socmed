@@ -4,7 +4,7 @@ import {
   FETCH_USER_FAILURE,
 } from '../actions/user'
 
-const initialState = {
+export const initialState = {
   loading: false,
   data: [],
   error: null
