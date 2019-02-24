@@ -8,6 +8,7 @@ import Card from '../../components/Card/'
 import PostForm from '../../components/PostForm/'
 import Post from '../../components/Card/Post/'
 import PostDetail from '../../components/PostDetail/'
+import Footer from '../../components/Footer/'
 import PostLoader from '../../components/Loader/PostLoader'
 
 import { fetchPost } from '../../actions/post'
@@ -40,9 +41,10 @@ class Home extends Component {
               </Card>
             </Col>
             <Col md={4}>
-              <Card>
+              <Card className="mb-4">
                 <PostForm />
               </Card>
+              <Footer />
             </Col>
           </Row>
         </Container>

@@ -36,6 +36,19 @@ class Profile extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const {
+      location,
+      clearSingleUser,
+      fetchSingleUser
+    } = this.props
+
+    if (prevProps.location.pathname !== location.pathname && location.pathname === '/profile') {
+      clearSingleUser()
+      fetchSingleUser(1)
+    }
+  }
+
   componentWillUnmount() {
     this.props.clearSingleUser()
   }
@@ -65,22 +78,26 @@ class Profile extends Component {
                         {...data} />
                     ))}
                   </Tab>
-                  <Tab eventKey="photos" title="Photos">
-                    <Tab.Container id="albums" defaultActiveKey="first">
+                  <Tab eventKey="photos" title="Album Photos">
+                    <Tab.Container id="albums" defaultActiveKey="default">
                       <Row className="m-sm-0 mt-sm-4">
                         <Col sm={3}>
                           <Nav variant="pills" className="flex-column">
-                            <Nav.Item>
-                              <Nav.Link eventKey="first">Album 1</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                              <Nav.Link eventKey="second">Album 2</Nav.Link>
-                            </Nav.Item>
+                            {singleUser.data !== null && singleUser.data.albums.map(album => (
+                              <Nav.Item key={album.id}>
+                                <Nav.Link eventKey={album.id}>{album.title}</Nav.Link>
+                              </Nav.Item>
+                            ))}
                           </Nav>
                         </Col>
                         <Col sm={9}>
                           <Tab.Content>
-                            <Tab.Pane eventKey="first">
+                            <Tab.Pane eventKey="default">
+                              <div  className="w-100 h-100 d-flex align-items-center justify-content-center">
+                                <Image className="w-50" src={img} thumbnail />
+                              </div>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="1">
                               <Image className="w-25" src={img} thumbnail />
                               <Image className="w-25" src={img} thumbnail />
                               <Image className="w-25" src={img} thumbnail />
@@ -89,7 +106,14 @@ class Profile extends Component {
                               <Image className="w-25" src={img} thumbnail />
                               <Image className="w-25" src={img} thumbnail />
                             </Tab.Pane>
-                            <Tab.Pane eventKey="second">
+                            <Tab.Pane eventKey="2">
+                              <Image className="w-25" src={img} thumbnail />
+                              <Image className="w-25" src={img} thumbnail />
+                              <Image className="w-25" src={img} thumbnail />
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="3">
+                              <Image className="w-25" src={img} thumbnail />
+                              <Image className="w-25" src={img} thumbnail />
                               <Image className="w-25" src={img} thumbnail />
                               <Image className="w-25" src={img} thumbnail />
                               <Image className="w-25" src={img} thumbnail />

@@ -43,7 +43,7 @@ class Login extends Component {
           </Form>
         </div>
         <div className="h-25 d-flex align-items-center justify-content-center">
-          Copyright &copy; {(new Date()).getFullYear()}
+          Copyright &copy; 2019
         </div>
       </div>
     )

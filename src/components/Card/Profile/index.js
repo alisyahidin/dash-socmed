@@ -7,7 +7,7 @@ import UserAttribute from './UserAttribute'
 import './style.scss'
 
 const Profile = ({user}) => {
-  const {address, company, id, name, username, posts, ...attributes} = user
+  const {address, company, id, name, username, posts, albums, ...attributes} = user
   const {geo, ...listAddress} = address
 
   return (

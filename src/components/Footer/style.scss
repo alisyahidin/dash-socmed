@@ -1,0 +1,10 @@
+.footer {
+  color: #999;
+  &__link {
+    color: #999 !important;
+    &:hover {
+      text-decoration: none;
+      color: #666 !important;
+    }
+  }
+}

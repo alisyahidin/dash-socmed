@@ -8,7 +8,11 @@ import {
   fetchSingleUserSuccess,
   fetchSingleUserFailure
 } from "../actions/singleUser"
-import { posts, fakeAjaxSingleUser } from './lib/fakeAjax'
+import {
+  albums,
+  posts,
+  fakeAjaxSingleUser
+} from './lib/fakeAjax'
 
 const fetchSingleUserEpic = action$ => {
   return action$
@@ -16,6 +20,7 @@ const fetchSingleUserEpic = action$ => {
     .pipe(
       mergeMap(action => fakeAjaxSingleUser(`/user/${action.id}`).pipe(
         map(response => ({...response, posts})),
+        map(response => ({...response, albums})),
         map(response => fetchSingleUserSuccess(response)),
         takeUntil(action$.pipe(
           ofType(CLEAR_SINGLE_USER)

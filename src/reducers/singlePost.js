@@ -28,7 +28,7 @@ const singlePostReducer = (state = initialState, action) => {
     case CLEAR_SINGLE_POST:
       return {
         ...state,
-        loading: false,
+        loading: true,
         data: null
       }
     case FETCH_SINGLE_POST_SUCCESS:
