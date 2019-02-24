@@ -23,7 +23,8 @@ const PostDetail = ({
   >
     {singlePost.error && <h1>{singlePost.error}</h1>}
     {singlePost.data === null && (
-      <Modal.Body className="h-75">
+      <Modal.Body className="h-75 text-center">
+        <h1>Loading</h1>
       </Modal.Body>
     )}
     {singlePost.data !== null && (

@@ -11,6 +11,6 @@ it('render <Profile /> correctly', () => {
 it('check <Profile /> props', () => {
   const component = mount(<Profile />)
 
-  expect(component.props().name).toBe('Guest')
-  expect(component.props().username).toBe('guest')
+  expect(component.props().user.name).toBe('Guest')
+  expect(component.props().user.username).toBe('guest')
 })

@@ -5,10 +5,12 @@ import {
   openModalPostEpic,
   fetchSinglePostEpic
 } from './singlePost'
+import fetchSingleUserEpic from './singleUser'
 
 export const rootEpic = combineEpics(
   fetchUserEpic,
   fetchPostEpic,
   openModalPostEpic,
   fetchSinglePostEpic,
+  fetchSingleUserEpic
 )
