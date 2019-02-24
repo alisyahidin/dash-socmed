@@ -8,12 +8,20 @@ import Card from '../../components/Card/'
 import PostForm from '../../components/PostForm/'
 import Post from '../../components/Card/Post/'
 import PostDetail from '../../components/PostDetail/'
+import PostLoader from '../../components/Loader/PostLoader'
 
 import { fetchPost } from '../../actions/post'
+import { openModal, clearSinglePost } from '../../actions/singlePost'
 
 class Home extends Component {
   componentDidMount() {
-    this.props.fetchPost()
+    const { fetchPost, post } = this.props
+    if (post.data.length === 0) fetchPost()
+  }
+
+  componentWillUnmount() {
+    this.props.openModal(false)
+    this.props.clearSinglePost()
   }
 
   render() {
@@ -25,6 +33,7 @@ class Home extends Component {
           <Row>
             <Col md={8}>
               <Card>
+                {post.loading && <PostLoader repeat={3} />}
                 {post.data.map((data, index) => (
                   <Post key={index} {...data} />
                 ))}
@@ -47,7 +56,9 @@ const mapStateToProps = state => ({ ...state })
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
-    fetchPost
+    fetchPost,
+    clearSinglePost,
+    openModal
   }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(withNavbar(Home))

@@ -19,6 +19,8 @@ import PostCard from '../../components/Card/Post/'
 import PostDetail from '../../components/PostDetail/'
 import Card from '../../components/Card/'
 import Image from '../../components/Image/'
+import PostLoader from '../../components/Loader/PostLoader'
+import ProfileLoader from '../../components/Loader/ProfileLoader'
 import './style.scss'
 
 import img from '../../assets/images/placeholder.png'
@@ -46,20 +48,21 @@ class Profile extends Component {
         <Container>
           <Row>
             <Col md={5}>
-              {singleUser.data !== null
-                ? <ProfileCard user={singleUser.data} />
-                : <Card><h1>Loading</h1></Card>
-              }
+              {singleUser.loading && <Card><ProfileLoader /></Card>}
+              {singleUser.data !== null && <ProfileCard user={singleUser.data} />}
             </Col>
             <Col>
               <Card align="left" className="mb-sm-1">
                 <Tabs defaultActiveKey="posts" className="profile-tabs m-sm-0">
                   <Tab eventKey="posts" title="Posts">
-                    {singleUser.data === null && (
-                      <h1 className="text-center">Loading</h1>
+                    {singleUser.loading && (
+                      <Card><PostLoader repeat={3} /></Card>
                     )}
                     {singleUser.data !== null && singleUser.data.posts.map((data, index) => (
-                      <PostCard profileDisabled author={singleUser.data || {name: 'Guest', username: 'guest'}} key={index} {...data} />
+                      <PostCard
+                        key={index}
+                        author={singleUser.data}
+                        {...data} />
                     ))}
                   </Tab>
                   <Tab eventKey="photos" title="Photos">

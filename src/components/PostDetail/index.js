@@ -8,6 +8,7 @@ import { clearSinglePost, openModal } from '../../actions/singlePost'
 
 import Comment from '../Comment/'
 import CommentForm from '../Comment/Form/'
+import PostLoader from '../Loader/PostLoader'
 import './style.scss'
 
 const PostDetail = ({
@@ -19,12 +20,12 @@ const PostDetail = ({
     size="lg"
     show={singlePost.open}
     onHide={() => openModal(false)}
-    onExited={clearSinglePost}
+    onExiting={clearSinglePost}
   >
     {singlePost.error && <h1>{singlePost.error}</h1>}
-    {singlePost.data === null && (
+    {singlePost.loading && (
       <Modal.Body className="h-75 text-center">
-        <h1>Loading</h1>
+        <PostLoader long />
       </Modal.Body>
     )}
     {singlePost.data !== null && (
