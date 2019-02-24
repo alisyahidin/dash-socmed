@@ -2,33 +2,25 @@
 
 exports[`render <Comment /> correctly 1`] = `
 <ForwardRef(Bootstrap(Row))
-  className="w-100 m-0 mb-2"
+  className="comment w-100 m-0 mt-3 mb-2"
 >
   <ForwardRef(Bootstrap(Col))
-    className="p-0 d-flex align-items-center justify-content-center"
-    md={1}
+    className="p-0 pl-2 d-flex flex-column align-items-start"
   >
-    <withAvatarConfig
-      name="Ali Syahidin"
-      round={true}
-      size="35px"
-    />
-  </ForwardRef(Bootstrap(Col))>
-  <ForwardRef(Bootstrap(Col))
-    className="p-0 pl-2 d-flex flex-column"
-  >
-    <Link
-      className="comment__author"
-      replace={false}
-      to="/users/3"
+    <p
+      className="mb-1"
     >
-      @username
-    </Link>
+      <b />
+       
+      <span
+        className="comment__email"
+      >
+        - 
+      </span>
+    </p>
     <p
       className="comment__body"
-    >
-      First Comment !!
-    </p>
+    />
   </ForwardRef(Bootstrap(Col))>
 </ForwardRef(Bootstrap(Row))>
 `;
@@ -38,27 +30,34 @@ exports[`render <CommentForm /> correctly 1`] = `
   className="w-100 m-0"
 >
   <ForwardRef(Bootstrap(Col))
-    className="p-0 d-flex align-items-center justify-content-center"
-    md={1}
-  >
-    <withAvatarConfig
-      name="Ali Syahidin"
-      round={true}
-      size="35px"
-    />
-  </ForwardRef(Bootstrap(Col))>
-  <ForwardRef(Bootstrap(Col))
     md={9}
   >
+    <ForwardRef(Bootstrap(FormRow))
+      className="mb-2"
+    >
+      <ForwardRef(Bootstrap(Col))>
+        <ForwardRef(ContextTransform)
+          placeholder="Name"
+          type="text"
+        />
+      </ForwardRef(Bootstrap(Col))>
+      <ForwardRef(Bootstrap(Col))>
+        <ForwardRef(ContextTransform)
+          placeholder="Email"
+          type="email"
+        />
+      </ForwardRef(Bootstrap(Col))>
+    </ForwardRef(Bootstrap(FormRow))>
     <ForwardRef(ContextTransform)
       placeholder="Write comment . . ."
+      type="text"
     />
   </ForwardRef(Bootstrap(Col))>
   <ForwardRef(Bootstrap(Col))
     className="d-flex align-items-center"
   >
     <ForwardRef(Bootstrap(Button))
-      className="w-100"
+      className="w-100 h-100"
       type="submit"
       variant="outline-primary"
     >

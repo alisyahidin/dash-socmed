@@ -11,19 +11,3 @@ it('render <Post /> correctly', () => {
 
   expect(component).toMatchSnapshot()
 })
-
-it('check <Post /> props', () => {
-  const options = new ReactRouterEnzymeContext();
-  const component = mount(
-    <Provider store={store}>
-      <Post />
-    </Provider>,
-    options.get()
-  )
-
-  expect(component.find(Post).props().author).toEqual({name: 'Guest', username: 'guest'})
-  expect(component.find(Post).props().title).toBe('Title')
-  expect(component.find(Post).props().body).toBe('Post')
-  expect(component.find(Post).props().profileDisabled).toBeFalsy()
-})
-

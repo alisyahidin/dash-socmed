@@ -5,7 +5,7 @@ import {
   FETCH_USER,
   fetchUserSuccess,
   fetchUserFailure
-} from "../actions/user";
+} from "../actions/user"
 
 const users = [
   {

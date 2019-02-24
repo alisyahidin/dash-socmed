@@ -1,17 +1,22 @@
 import React from 'react'
-import Avatar from 'react-avatar'
+import classNames from 'classnames'
 import { Button, Form, Col } from 'react-bootstrap'
 
-const CommentForm = () => (
-  <Form.Row className="w-100 m-0">
-    <Col md={1} className="p-0 d-flex align-items-center justify-content-center">
-      <Avatar size="35px" name="Ali Syahidin" round />
-    </Col>
+const CommentForm = ({className}) => (
+  <Form.Row className={classNames(className, "w-100 m-0")}>
     <Col md={9}>
-      <Form.Control placeholder="Write comment . . ." />
+      <Form.Row className="mb-2">
+        <Col>
+          <Form.Control type="text" placeholder="Name" />
+        </Col>
+        <Col>
+          <Form.Control type="email" placeholder="Email" />
+        </Col>
+      </Form.Row>
+      <Form.Control type="text" placeholder="Write comment . . ." />
     </Col>
     <Col className="d-flex align-items-center">
-      <Button className="w-100" variant="outline-primary" type="submit">
+      <Button className="w-100 h-100" variant="outline-primary" type="submit">
         Send
       </Button>
     </Col>

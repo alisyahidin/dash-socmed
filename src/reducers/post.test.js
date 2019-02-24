@@ -1,6 +1,5 @@
 import {
   FETCH_POST,
-  FETCH_SINGLE_POST,
   FETCH_POST_SUCCESS,
   FETCH_POST_FAILURE,
 } from '../actions/post'
@@ -16,11 +15,6 @@ it('test FETCH_POST action type', () => {
   expect(postReducer(undefined, { type: FETCH_POST })).toEqual(expectedState)
 })
 
-it('test FETCH_POST action type', () => {
-  const expectedState = { ...initialState, loading: true }
-  expect(postReducer(undefined, { type: FETCH_SINGLE_POST, id: 1 })).toEqual(expectedState)
-})
-
 it('test FETCH_POST_SUCCESS action type', () => {
   const posts = [
     {
@@ -31,7 +25,7 @@ it('test FETCH_POST_SUCCESS action type', () => {
     }
   ]
   const expectedState = { ...initialState, loading: false, data: posts }
-  expect(postReducer(undefined, { type: FETCH_POST_SUCCESS, payload: { data: posts } })).toEqual(expectedState)
+  expect(postReducer(undefined, { type: FETCH_POST_SUCCESS, payload: posts })).toEqual(expectedState)
 })
 
 it('test FETCH_POST_FAILURE action type', () => {

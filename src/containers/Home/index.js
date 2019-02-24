@@ -7,6 +7,7 @@ import withNavbar from '../../hoc/withNavbar'
 import Card from '../../components/Card/'
 import PostForm from '../../components/PostForm/'
 import Post from '../../components/Card/Post/'
+import PostDetail from '../../components/PostDetail/'
 
 import { fetchPost } from '../../actions/post'
 
@@ -19,22 +20,25 @@ class Home extends Component {
     const { post } = this.props
 
     return (
-      <Container>
-        <Row>
-          <Col md={8}>
-            <Card>
-              {post.data.map((data, index) => (
-                <Post key={index} {...data} />
-              ))}
-            </Card>
-          </Col>
-          <Col md={4}>
-            <Card>
-              <PostForm />
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+      <>
+        <Container>
+          <Row>
+            <Col md={8}>
+              <Card>
+                {post.data.map((data, index) => (
+                  <Post key={index} {...data} />
+                ))}
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card>
+                <PostForm />
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+        <PostDetail />
+      </>
     )
   }
 }

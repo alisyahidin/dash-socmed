@@ -1,20 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap'
-import { FaRegComment } from 'react-icons/fa'
 
-import PostDetail from '../../PostDetail/'
+import { openModal } from '../../../actions/singlePost'
 import './style.scss'
 
-const Post = ({author, id, title, body, profileDisabled, ...props}) => {
-  const [open, setOpen] = useState(false)
-
+const Post = ({author, id, title, body, openModal, ...props}) => {
   return (
     <>
       <Row className="post mx-sm-1">
         <Col className="p-sm-0 d-flex flex-column justify-content-center align-items-start">
-          <h5 onClick={() => setOpen(true)} className="post__title mb-sm-2">{title}</h5>
+          <h5 onClick={() => openModal(true, id)} className="post__title mb-sm-2">{title}</h5>
           <span>
             by&nbsp;-&nbsp;
             <Link to="/profile" className="author d-inline-block mb-sm-1">
@@ -26,20 +25,11 @@ const Post = ({author, id, title, body, profileDisabled, ...props}) => {
               </span>
             </Link>
           </span>
-          <div onClick={() => setOpen(true)} className="post__body">
+          <div onClick={() => openModal(true, id)} className="post__body">
             <p className="mb-sm-2">{body}</p>
-            <span className="d-flex align-items-center">
-              <FaRegComment className="mr-sm-1" /> 5
-            </span>
           </div>
         </Col>
       </Row>
-
-      <PostDetail
-        open={open}
-        toggleOpen={setOpen}
-        id={id}
-      />
     </>
   )
 }
@@ -49,7 +39,6 @@ Post.propTypes = {
   author: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  profileDisabled: PropTypes.bool.isRequired,
 }
 
 Post.defaultProps = {
@@ -60,8 +49,13 @@ Post.defaultProps = {
   },
   title: 'Title',
   body: 'Post',
-  profileDisabled: false,
 }
 
-export default Post
+const mapStateToProps = state => ({ ...state })
 
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({
+    openModal
+  }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post)

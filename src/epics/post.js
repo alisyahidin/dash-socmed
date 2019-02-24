@@ -1,15 +1,11 @@
 import { of } from 'rxjs'
-import { delay, takeUntil, mergeMap, map, catchError } from 'rxjs/operators'
-import { ofType } from 'redux-observable'
+import { delay, map, catchError } from 'rxjs/operators'
 
 import {
   FETCH_POST,
-  FETCH_SINGLE_POST,
-  CLEAR_SINGLE_POST,
   fetchPostSuccess,
   fetchPostFailure
-} from "../actions/post";
-import { fakeAjaxSinglePost } from './lib/fakeAjax'
+} from "../actions/post"
 
 const posts = [
   {
@@ -32,25 +28,14 @@ const posts = [
   }
 ]
 
-export const fetchPostEpic = action$ => {
+const fetchPostEpic = action$ => {
   return action$
     .ofType(FETCH_POST)
     .pipe(
       delay(3000),
-      map(action => fetchPostSuccess({ data: posts })),
+      map(action => fetchPostSuccess(posts)),
       catchError(() => of(fetchPostFailure('Cannot fetch post')))
     )
 }
 
-export const fetchSinglePostEpic = action$ => {
-  return action$.pipe(
-    ofType(FETCH_SINGLE_POST),
-    mergeMap(action => fakeAjaxSinglePost(`/post/${action.id}`).pipe(
-      map(response => fetchPostSuccess({ single: response })),
-      takeUntil(action$.pipe(
-        ofType(CLEAR_SINGLE_POST)
-      )),
-      catchError(() => of(fetchPostFailure('Cannot fetch post')))
-    ))
-  )
-}
+export default fetchPostEpic
