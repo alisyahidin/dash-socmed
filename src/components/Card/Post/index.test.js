@@ -1,7 +1,9 @@
 import React from 'react'
 import { MemoryRouter } from 'react-router'
+import { Provider } from 'react-redux'
 import { shallow, mount } from 'enzyme'
 import ReactRouterEnzymeContext from 'react-router-enzyme-context'
+import store from '../../../store/'
 import Post from './index'
 
 it('render <Post /> correctly', () => {
@@ -13,13 +15,15 @@ it('render <Post /> correctly', () => {
 it('check <Post /> props', () => {
   const options = new ReactRouterEnzymeContext();
   const component = mount(
-    <Post />,
+    <Provider store={store}>
+      <Post />
+    </Provider>,
     options.get()
   )
 
-  expect(component.props().author).toEqual({name: 'Guest', username: 'guest'})
-  expect(component.props().title).toBe('Title')
-  expect(component.props().body).toBe('Post')
-  expect(component.props().profileDisabled).toBeFalsy()
+  expect(component.find(Post).props().author).toEqual({name: 'Guest', username: 'guest'})
+  expect(component.find(Post).props().title).toBe('Title')
+  expect(component.find(Post).props().body).toBe('Post')
+  expect(component.find(Post).props().profileDisabled).toBeFalsy()
 })
 

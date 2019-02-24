@@ -1,58 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render <PostDetail /> correctly 1`] = `
-<ForwardRef(Bootstrap(Modal))
-  onHide={[Function]}
-  size="md"
->
-  <ForwardRef(Bootstrap(ModalHeader))
-    closeButton={true}
-  >
-    <ForwardRef(Bootstrap(ModalTitle))>
-      <h2>
-        Lorem Ipsum
-      </h2>
-      <Link
-        className="author d-flex align-items-center mt-sm-2"
-        replace={false}
-        to="/profile"
-      >
-        <h5>
-          Ali 
-          <span
-            className="author__username"
-          >
-            @ali
-          </span>
-        </h5>
-      </Link>
-    </ForwardRef(Bootstrap(ModalTitle))>
-  </ForwardRef(Bootstrap(ModalHeader))>
-  <ForwardRef(Bootstrap(ModalBody))
-    className="px-4"
-  >
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, tempore error autem atque quas corrupti, cupiditate. Earum voluptate, error, ipsam itaque, repellat commodi aliquam id veniam neque explicabo iste sequi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, tempore error autem atque quas corrupti, cupiditate. Earum voluptate, error, ipsam itaque, repellat commodi aliquam id veniam neque explicabo iste sequi.
-    </p>
-    <span
-      className="comment-icon mt-sm-2 d-flex align-items-center"
-    >
-      <FaRegComment
-        className="mr-sm-1"
-      />
-       5
-    </span>
-  </ForwardRef(Bootstrap(ModalBody))>
-  <ForwardRef(Bootstrap(ModalFooter))
-    className="flex-column"
-  >
-    <CommentForm />
-    <hr
-      className="w-100"
-    />
-    <PostDetail />
-    <PostDetail />
-    <PostDetail />
-  </ForwardRef(Bootstrap(ModalFooter))>
-</ForwardRef(Bootstrap(Modal))>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;

@@ -7,7 +7,7 @@ import { FaRegComment } from 'react-icons/fa'
 import PostDetail from '../../PostDetail/'
 import './style.scss'
 
-const Post = ({author, title, body, profileDisabled}) => {
+const Post = ({author, id, title, body, profileDisabled, ...props}) => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -38,12 +38,14 @@ const Post = ({author, title, body, profileDisabled}) => {
       <PostDetail
         open={open}
         toggleOpen={setOpen}
+        id={id}
       />
     </>
   )
 }
 
 Post.propTypes = {
+  id: PropTypes.number.isRequired,
   author: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
@@ -51,6 +53,7 @@ Post.propTypes = {
 }
 
 Post.defaultProps = {
+  id: 0,
   author: {
     name: 'Guest',
     username: 'guest'
@@ -61,3 +64,4 @@ Post.defaultProps = {
 }
 
 export default Post
+

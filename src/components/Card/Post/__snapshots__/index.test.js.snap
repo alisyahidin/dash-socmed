@@ -54,7 +54,8 @@ exports[`render <Post /> correctly 1`] = `
       </div>
     </ForwardRef(Bootstrap(Col))>
   </ForwardRef(Bootstrap(Row))>
-  <PostDetail
+  <Connect(PostDetail)
+    id={0}
     open={false}
     toggleOpen={[Function]}
   />

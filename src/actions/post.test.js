@@ -1,14 +1,26 @@
 import {
   FETCH_POST,
+  FETCH_SINGLE_POST,
   FETCH_POST_SUCCESS,
   FETCH_POST_FAILURE,
   fetchPost,
+  fetchSinglePost,
   fetchPostSuccess,
   fetchPostFailure,
 } from './post'
 
 it('test fetchPost action creators', () => {
   expect(fetchPost()).toEqual({type: FETCH_POST})
+})
+
+it('test fetchSinglePost action creators', () => {
+  const id = 1
+  const expectedAction = {
+    type: FETCH_SINGLE_POST,
+    id
+  }
+
+  expect(fetchSinglePost(id)).toEqual(expectedAction)
 })
 
 it('test fetchPostSuccess action creators', () => {
