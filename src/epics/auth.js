@@ -1,18 +1,18 @@
-import { mergeMap, map } from 'rxjs/operators'
+import { of } from 'rxjs'
+import { mergeMap, map, catchError } from 'rxjs/operators'
 import {
   LOGIN,
   loginSuccess,
   loginFailure
 } from '../actions/auth'
-import { fakeAjaxUser } from './lib/fakeAjax'
 import storage from '../lib/storage'
 
-export const loginEpic = action$ => {
+export const loginEpic = (action$, state$, { axios$ }) => {
   return action$
     .ofType(LOGIN)
     .pipe(
-      mergeMap(action => fakeAjaxUser('/users').pipe(
-        map(users => users.filter(user =>
+      mergeMap(action => axios$('/users').pipe(
+        map(users => users.data.filter(user =>
           user.username === action.payload.username &&
           user.email === action.payload.email
         )),
@@ -23,6 +23,10 @@ export const loginEpic = action$ => {
           } else {
             return loginFailure('Username and email not match!')
           }
+        }),
+        catchError(error => {
+          console.log(error)
+          return of(loginFailure('Cannot login, please try again :)'))
         })
       ))
     )

@@ -20,7 +20,7 @@ const PostDetail = ({
     show={singlePost.open}
     onHide={() => openModal(false)}
   >
-    {singlePost.error && <h1>{singlePost.error}</h1>}
+    {singlePost.error && <h3 className="w-100 text-center my-5">{singlePost.error}</h3>}
     {singlePost.loading && (
       <Modal.Body className="h-75 text-center">
         <PostLoader long />

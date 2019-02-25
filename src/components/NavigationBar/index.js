@@ -17,6 +17,7 @@ import {
 
 import Protected from '../../components/Protected/'
 import { logout } from '../../actions/auth'
+import storage from '../../lib/storage'
 import './style.scss'
 
 class ProfileMenu extends Component {
@@ -44,6 +45,7 @@ const ProfileMenuItem = ({onClick, children}) => (
 class NavigationBar extends Component {
   render() {
     const { location, logout } = this.props
+    const authenticatedUser = JSON.parse(storage.get('user')) || {name: ''}
 
     return (
       <Navbar bg="white" variant="light" className="my-navbar">
@@ -78,7 +80,7 @@ class NavigationBar extends Component {
             >
               <Dropdown>
                 <Dropdown.Toggle as={ProfileMenu} id="profile-menu">
-                  Ali Syahidin <MdKeyboardArrowDown />
+                  {authenticatedUser.name} <MdKeyboardArrowDown />
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
