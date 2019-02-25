@@ -1,1 +1,1 @@
-export const MAIN_URI = 'http://jsonplaceholder.typicode.com'
+export const MAIN_URI = 'https://jsonplaceholder.typicode.com'
