@@ -4,6 +4,7 @@ import {
   LOGIN_FAILURE,
   LOGOUT,
 } from '../actions/auth'
+import storage from '../lib/storage'
 
 export const initialState = {
   loading: false,
@@ -33,6 +34,7 @@ const authReducer = (state = initialState, action) => {
         error: action.payload
       }
     case LOGOUT:
+      storage.remove('user')
       return {
         ...state,
         loading: false,

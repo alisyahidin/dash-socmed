@@ -1,5 +1,5 @@
 import { of } from 'rxjs'
-import { takeUntil, mergeMap, map, catchError } from 'rxjs/operators'
+import { delay, takeUntil, mergeMap, map, catchError } from 'rxjs/operators'
 import { ofType } from 'redux-observable'
 
 import {
@@ -21,7 +21,7 @@ const fetchSingleUserEpic = action$ => {
     .pipe(
       mergeMap(action => {
         const user$ = typeof action.id === 'undefined'
-          ? of(JSON.parse(storage.get('user')))
+          ? of(JSON.parse(storage.get('user'))).pipe(delay(2000))
           : fakeAjaxSingleUser(`/user/${action.id}`)
         return user$.pipe(
           map(response => ({...response, posts})),

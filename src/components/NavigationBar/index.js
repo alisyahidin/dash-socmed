@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import classNames from 'classnames'
 import {
   Container,
@@ -12,6 +14,9 @@ import {
   MdGroup,
   MdKeyboardArrowDown
 } from "react-icons/md"
+
+import Protected from '../../components/Protected/'
+import { logout } from '../../actions/auth'
 import './style.scss'
 
 class ProfileMenu extends Component {
@@ -38,7 +43,8 @@ const ProfileMenuItem = ({onClick, children}) => (
 
 class NavigationBar extends Component {
   render() {
-    const { pathname } = this.props.location
+    const { location, logout } = this.props
+
     return (
       <Navbar bg="white" variant="light" className="my-navbar">
         <Container>
@@ -47,7 +53,7 @@ class NavigationBar extends Component {
               to="/"
               className={classNames(
                 "nav-link nav-link__menu",
-                { active: pathname === '/' }
+                { active: location.pathname === '/' }
               )}
             >
               <MdHome className="mr-sm-1" /> Home
@@ -56,23 +62,31 @@ class NavigationBar extends Component {
               to="/users"
               className={classNames(
                 "nav-link nav-link__menu",
-                { active: pathname === '/users' }
+                { active: location.pathname === '/users' }
               )}
             >
               <MdGroup className="mr-sm-1" /> Users
             </Link>
           </Nav>
           <Nav className="ml-auto">
-            <Dropdown>
-              <Dropdown.Toggle as={ProfileMenu} id="profile-menu">
-                Ali Syahidin <MdKeyboardArrowDown />
-              </Dropdown.Toggle>
+            <Protected
+              alternative={
+                <Link to="/login" className={"nav-link nav-link__menu"}>
+                  Login
+                </Link>
+              }
+            >
+              <Dropdown>
+                <Dropdown.Toggle as={ProfileMenu} id="profile-menu">
+                  Ali Syahidin <MdKeyboardArrowDown />
+                </Dropdown.Toggle>
 
-              <Dropdown.Menu>
-                <Dropdown.Item as={ProfileMenuItem}>Profile</Dropdown.Item>
-                <Dropdown.Item>Logout</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+                <Dropdown.Menu>
+                  <Dropdown.Item as={ProfileMenuItem}>Profile</Dropdown.Item>
+                  <Dropdown.Item onClick={() => logout()}>Logout</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </Protected>
           </Nav>
         </Container>
       </Navbar>
@@ -80,4 +94,14 @@ class NavigationBar extends Component {
   }
 }
 
-export default withRouter(NavigationBar)
+const mapStateToProps = state => ({ ...state })
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({
+    logout
+  }, dispatch)
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(NavigationBar))
