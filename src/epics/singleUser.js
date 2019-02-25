@@ -1,5 +1,5 @@
 import { of } from 'rxjs'
-import { delay, takeUntil, mergeMap, map, catchError } from 'rxjs/operators'
+import { takeUntil, mergeMap, map, catchError } from 'rxjs/operators'
 
 import {
   FETCH_SINGLE_USER,
@@ -15,7 +15,7 @@ const fetchSingleUserEpic = (action$, state$, { axios$ } ) => {
     .pipe(
       mergeMap(action => {
         const user$ = typeof action.id === 'undefined'
-          ? of(JSON.parse(storage.get('user'))).pipe(delay(2000))
+          ? of({data: JSON.parse(storage.get('user'))})
           : axios$(`/users/${action.id}`)
         return user$.pipe(
           map(response => response.data),
@@ -33,7 +33,6 @@ const fetchSingleUserEpic = (action$, state$, { axios$ } ) => {
           })
         )
       })
-
     )
 }
 

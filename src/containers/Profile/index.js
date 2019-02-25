@@ -55,7 +55,7 @@ class Profile extends Component {
 
   render() {
     const { singleUser } = this.props
-
+console.log(singleUser.data)
     return (
       <>
         <Container>
