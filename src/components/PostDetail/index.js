@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 
-import { clearSinglePost, openModal } from '../../actions/singlePost'
+import { openModal } from '../../actions/singlePost'
 
 import Comment from '../Comment/'
 import CommentForm from '../Comment/Form/'
@@ -13,14 +13,12 @@ import './style.scss'
 
 const PostDetail = ({
   singlePost,
-  clearSinglePost,
   openModal,
 }) => (
   <Modal
     size="lg"
     show={singlePost.open}
     onHide={() => openModal(false)}
-    onExiting={clearSinglePost}
   >
     {singlePost.error && <h1>{singlePost.error}</h1>}
     {singlePost.loading && (
@@ -62,7 +60,6 @@ const mapStateToProps = state => ({ ...state })
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
-    clearSinglePost,
     openModal
   }, dispatch)
 

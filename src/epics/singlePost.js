@@ -1,6 +1,5 @@
 import { of } from 'rxjs'
 import { takeUntil, mergeMap, map, catchError } from 'rxjs/operators'
-import { ofType } from 'redux-observable'
 
 import {
   OPEN_MODAL,
@@ -8,24 +7,32 @@ import {
   CLEAR_SINGLE_POST,
   fetchSinglePost,
   fetchSinglePostSuccess,
-  fetchSinglePostFailure
+  fetchSinglePostFailure,
+  clearSinglePost
 } from "../actions/singlePost"
-import { fakeAjaxSinglePost } from './lib/fakeAjax'
 
-export const openModalPostEpic = action$ => action$.pipe(
-  ofType(OPEN_MODAL),
-  map(action => fetchSinglePost(action.postId))
+export const openModalPostEpic = action$ => action$.ofType(OPEN_MODAL).pipe(
+  map(action => typeof action.postId !== 'undefined' && action.open !== false
+    ? fetchSinglePost(action.postId)
+    : clearSinglePost()
+  )
 )
 
-export const fetchSinglePostEpic = action$ => {
-  return action$.pipe(
-    ofType(FETCH_SINGLE_POST),
-    mergeMap(action => fakeAjaxSinglePost(`/post/${action.id}`).pipe(
-      map(response => fetchSinglePostSuccess(response)),
-      takeUntil(action$.pipe(
-        ofType(CLEAR_SINGLE_POST)
-      )),
-      catchError(() => of(fetchSinglePostFailure('Cannot fetch post')))
-    ))
-  )
+export const fetchSinglePostEpic = (action$, state$, { axios$ }) => {
+  return action$
+    .ofType(FETCH_SINGLE_POST)
+    .pipe(
+      mergeMap(action => axios$(`/posts/${action.id}`).pipe(
+        map(posts => posts.data),
+        mergeMap(post => axios$(`/comments?postId=${post.id}`).pipe(
+          map(comments => comments.data),
+          map(comments => fetchSinglePostSuccess({comments, ...post})),
+          takeUntil(action$.ofType(CLEAR_SINGLE_POST)),
+          catchError(error => {
+            console.log(error)
+            return of(fetchSinglePostFailure('Cannot fetch Single Post'))
+          })
+        ))
+      ))
+    )
 }

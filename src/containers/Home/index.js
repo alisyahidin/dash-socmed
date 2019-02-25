@@ -13,7 +13,7 @@ import Footer from '../../components/Footer/'
 import PostLoader from '../../components/Loader/PostLoader'
 
 import { fetchPost } from '../../actions/post'
-import { openModal, clearSinglePost } from '../../actions/singlePost'
+import { openModal } from '../../actions/singlePost'
 
 class Home extends Component {
   componentDidMount() {
@@ -23,7 +23,6 @@ class Home extends Component {
 
   componentWillUnmount() {
     this.props.openModal(false)
-    this.props.clearSinglePost()
   }
 
   render() {
@@ -63,7 +62,6 @@ const mapStateToProps = state => ({ ...state })
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
     fetchPost,
-    clearSinglePost,
     openModal
   }, dispatch)
 

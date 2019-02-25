@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Link } from 'react-router-dom'
 import classNames from 'classnames'
 import { Button, Form } from 'react-bootstrap'
 
@@ -80,6 +81,7 @@ class Login extends Component {
               {auth.loading ? 'Loading': 'Login'}
             </Button>
           </Form>
+          <Link to="/">Go to Home</Link>
         </div>
         <div className="h-25 text-secondary d-flex align-items-center justify-content-center">
           Copyright &copy; 2019

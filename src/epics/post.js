@@ -14,7 +14,10 @@ const fetchPostEpic = (action$, state$, { axios$ }) => {
       mergeMap(action => axios$('/posts').pipe(
         map(response => response.data),
         map(data => fetchPostSuccess(data)),
-        catchError(error => of(fetchPostFailure('Cannot get posts, please try again :)')))
+        catchError(error => {
+          console.log(error)
+          return of(fetchPostFailure('Cannot get posts, please try again :)'))
+        })
       ))
     )
 }
