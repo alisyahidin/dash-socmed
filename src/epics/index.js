@@ -7,6 +7,10 @@ import {
 } from './singlePost'
 import fetchSingleUserEpic from './singleUser'
 import { loginEpic } from './auth'
+import {
+  openModalAlbumEpic,
+  fetchSingleAlbumEpic
+} from './album'
 
 export const rootEpic = combineEpics(
   fetchUserEpic,
@@ -15,4 +19,6 @@ export const rootEpic = combineEpics(
   fetchSinglePostEpic,
   fetchSingleUserEpic,
   loginEpic,
+  openModalAlbumEpic,
+  fetchSingleAlbumEpic
 )

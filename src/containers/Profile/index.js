@@ -12,18 +12,17 @@ import {
 } from 'react-bootstrap'
 
 import { fetchSingleUser, clearSingleUser } from '../../actions/singleUser'
+import { openModal as openAlbumModal } from '../../actions/album'
 
 import withNavbar from '../../hoc/withNavbar'
 import ProfileCard from '../../components/Card/Profile/'
 import PostCard from '../../components/Card/Post/'
 import PostDetail from '../../components/PostDetail/'
+import AlbumDetail from '../../components/AlbumDetail/'
 import Card from '../../components/Card/'
-import Image from '../../components/Image/'
 import PostLoader from '../../components/Loader/PostLoader'
 import ProfileLoader from '../../components/Loader/ProfileLoader'
 import './style.scss'
-
-import img from '../../assets/images/placeholder.png'
 
 class Profile extends Component {
   componentDidMount() {
@@ -54,8 +53,8 @@ class Profile extends Component {
   }
 
   render() {
-    const { singleUser } = this.props
-console.log(singleUser.data)
+    const { singleUser, openAlbumModal } = this.props
+
     return (
       <>
         <Container>
@@ -86,51 +85,25 @@ console.log(singleUser.data)
                             author={singleUser.data}
                             {...post} />
                         ))}
+                        <PostDetail />
                       </Tab>
                       <Tab eventKey="photos" title="Album Photos">
                         <Tab.Container id="albums" defaultActiveKey="default">
-                          <Row className="m-sm-0 mt-sm-4">
-                            <Col sm={3}>
-                              <Nav variant="pills" className="flex-column">
-                                {singleUser.data !== null && singleUser.data.albums.map(album => (
-                                  <Nav.Item key={album.id}>
-                                    <Nav.Link eventKey={album.id}>{album.title}</Nav.Link>
-                                  </Nav.Item>
-                                ))}
-                              </Nav>
-                            </Col>
-                            <Col sm={9}>
-                              <Tab.Content>
-                                <Tab.Pane eventKey="default">
-                                  <div  className="w-100 h-100 d-flex align-items-center justify-content-center">
-                                    <Image className="w-50" src={img} thumbnail />
-                                  </div>
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="1">
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="2">
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="3">
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                  <Image className="w-25" src={img} thumbnail />
-                                </Tab.Pane>
-                              </Tab.Content>
-                            </Col>
-                          </Row>
+                          <Nav variant="pills" className="mt-3 flex-column">
+                            {singleUser.loading && <Card><ProfileLoader /></Card>}
+                            {singleUser.data !== null && singleUser.data.albums.map(album => (
+                              <Nav.Item key={album.id}>
+                                <Nav.Link
+                                  onClick={() => openAlbumModal(true, album.id)}
+                                  eventKey={album.id}
+                                >
+                                  {album.title}
+                                </Nav.Link>
+                              </Nav.Item>
+                            ))}
+                          </Nav>
                         </Tab.Container>
+                        <AlbumDetail />
                       </Tab>
                     </Tabs>
                   </Card>
@@ -139,7 +112,6 @@ console.log(singleUser.data)
             )}
           </Row>
         </Container>
-        <PostDetail />
       </>
     )
   }
@@ -150,7 +122,8 @@ const mapStateToProps = state => state
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
     fetchSingleUser,
-    clearSingleUser
+    clearSingleUser,
+    openAlbumModal
   }, dispatch)
 
 export default connect(

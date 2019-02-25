@@ -9,13 +9,13 @@ import { openModal } from '../../actions/singlePost'
 import Comment from '../Comment/'
 import CommentForm from '../Comment/Form/'
 import PostLoader from '../Loader/PostLoader'
-import './style.scss'
 
 const PostDetail = ({
   singlePost,
   openModal,
 }) => (
   <Modal
+    id="post-detail"
     size="lg"
     show={singlePost.open}
     onHide={() => openModal(false)}

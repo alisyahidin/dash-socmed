@@ -30,7 +30,7 @@ exports[`render <PostLoader /> correctly 1`] = `
     height="6.4"
     rx="3"
     ry="3"
-    width={333}
+    width={246}
     x="0"
     y="50"
   />
@@ -38,7 +38,7 @@ exports[`render <PostLoader /> correctly 1`] = `
     height="6.4"
     rx="3"
     ry="3"
-    width={266}
+    width={204}
     x="0"
     y="65"
   />
@@ -46,7 +46,7 @@ exports[`render <PostLoader /> correctly 1`] = `
     height="6.4"
     rx="3"
     ry="3"
-    width={318}
+    width={346}
     x="0"
     y="80"
   />
@@ -232,7 +232,7 @@ exports[`render <UserLoader /> correctly 1`] = `
     height="7"
     rx="5"
     ry="5"
-    width={140}
+    width={143}
     x="25"
     y="7"
   />
