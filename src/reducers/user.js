@@ -15,7 +15,8 @@ const userReducer = (state = initialState, action) => {
     case FETCH_USER:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: null
       }
     case FETCH_USER_SUCCESS:
       return {

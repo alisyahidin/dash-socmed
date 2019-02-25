@@ -23,7 +23,7 @@ export const fetchSinglePostEpic = (action$, state$, { axios$ }) => {
     .ofType(FETCH_SINGLE_POST)
     .pipe(
       mergeMap(action => axios$(`/posts/${action.id}`).pipe(
-        mergeMap(post => axios$(`/users/${post.userId}`).pipe(
+        mergeMap(post => axios$(`/users/${post.data.userId}`).pipe(
           map(user => ({user: user.data, ...post.data})),
           mergeMap(post => axios$(`/comments?postId=${post.id}`).pipe(
             map(comments => fetchSinglePostSuccess({comments: comments.data, ...post})),

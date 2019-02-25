@@ -25,6 +25,7 @@ class Users extends Component {
           <Col md={{ span: 10, offset: 1 }}>
             <Card align="left">
               {user.loading && <UserLoader repeat={3} />}
+              {user.error && <h3 className="w-100 text-center">{user.error}</h3>}
               {user.data.map(user => (
                 <User key={user.id} id={user.id} {...user} />
               ))}

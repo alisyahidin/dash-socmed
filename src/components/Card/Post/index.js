@@ -15,9 +15,8 @@ const Post = ({author, id, title, body, openModal, ...props}) => {
         <Col className="p-sm-0 d-flex flex-column justify-content-center align-items-start">
           <h5 onClick={() => openModal(true, id)} className="post__title mb-sm-2">{title}</h5>
           <span>
-            {console.log(props)}
             by&nbsp;-&nbsp;
-            <Link to="/profile" className="author d-inline-block mb-sm-1">
+            <Link to={`/users/${author.id}`} className="author d-inline-block mb-sm-1">
               <b className="mr-sm-1">
                 {author.name}
               </b>
@@ -45,6 +44,7 @@ Post.propTypes = {
 Post.defaultProps = {
   id: 0,
   author: {
+    id: 1,
     name: 'Guest',
     username: 'guest'
   },

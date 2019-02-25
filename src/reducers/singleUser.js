@@ -16,7 +16,8 @@ const singleUserReducer = (state = initialState, action) => {
     case FETCH_SINGLE_USER:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: null
       }
     case CLEAR_SINGLE_USER:
       return {

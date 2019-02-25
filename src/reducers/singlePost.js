@@ -18,12 +18,13 @@ const singlePostReducer = (state = initialState, action) => {
     case OPEN_MODAL:
       return {
         ...state,
-        open: action.open
+        open: action.open,
       }
     case FETCH_SINGLE_POST:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: null
       }
     case CLEAR_SINGLE_POST:
       return {
