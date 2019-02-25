@@ -1,7 +1,6 @@
 import { mergeMap, map } from 'rxjs/operators'
 import {
   LOGIN,
-  CHECK_AUTHENTICATED_USER,
   loginSuccess,
   loginFailure
 } from '../actions/auth'
@@ -25,20 +24,6 @@ export const loginEpic = action$ => {
             return loginFailure('Username and email not match!')
           }
         })
-      ))
-    )
-}
-
-export const checkAuthenticatedUserEpic = action$ => {
-  return action$
-    .ofType(CHECK_AUTHENTICATED_USER)
-    .pipe(
-      mergeMap(action => fakeAjaxUser('/users').pipe(
-        map(users => users.filter(user =>
-          user.username === action.payload.username &&
-          user.email === action.payload.email
-        )),
-        map(user => user.length === 1 ? loginSuccess(user[0]) : loginFailure('not match'))
       ))
     )
 }

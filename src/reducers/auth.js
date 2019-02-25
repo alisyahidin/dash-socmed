@@ -3,7 +3,6 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT,
-  CHECK_AUTHENTICATED_USER,
 } from '../actions/auth'
 
 export const initialState = {
@@ -39,11 +38,6 @@ const authReducer = (state = initialState, action) => {
         loading: false,
         user: null,
         error: null
-      }
-    case CHECK_AUTHENTICATED_USER:
-      return {
-        ...state,
-        loading: true
       }
     default:
       return state

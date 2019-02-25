@@ -13,20 +13,26 @@ import {
   posts,
   fakeAjaxSingleUser
 } from './lib/fakeAjax'
+import storage from '../lib/storage'
 
 const fetchSingleUserEpic = action$ => {
   return action$
     .ofType(FETCH_SINGLE_USER)
     .pipe(
-      mergeMap(action => fakeAjaxSingleUser(`/user/${action.id}`).pipe(
-        map(response => ({...response, posts})),
-        map(response => ({...response, albums})),
-        map(response => fetchSingleUserSuccess(response)),
-        takeUntil(action$.pipe(
-          ofType(CLEAR_SINGLE_USER)
-        )),
-        catchError(() => of(fetchSingleUserFailure('Cannot fetch singleUser')))
-      ))
+      mergeMap(action => {
+        const user$ = typeof action.id === 'undefined'
+          ? of(JSON.parse(storage.get('user')))
+          : fakeAjaxSingleUser(`/user/${action.id}`)
+        return user$.pipe(
+          map(response => ({...response, posts})),
+          map(response => ({...response, albums})),
+          map(response => fetchSingleUserSuccess(response)),
+          takeUntil(action$.pipe(
+            ofType(CLEAR_SINGLE_USER)
+          )),
+          catchError(() => of(fetchSingleUserFailure('Cannot fetch singleUser')))
+        )
+      })
     )
 }
 

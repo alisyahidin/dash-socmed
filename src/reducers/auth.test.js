@@ -3,7 +3,6 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT,
-  CHECK_AUTHENTICATED_USER
 } from '../actions/auth'
 import authReducer, { initialState } from './auth'
 

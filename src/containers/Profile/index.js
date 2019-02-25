@@ -32,7 +32,7 @@ class Profile extends Component {
     if (location.pathname !== '/profile') {
       fetchSingleUser(match.params.id)
     } else {
-      fetchSingleUser(1)
+      fetchSingleUser()
     }
   }
 
@@ -45,7 +45,7 @@ class Profile extends Component {
 
     if (prevProps.location.pathname !== location.pathname && location.pathname === '/profile') {
       clearSingleUser()
-      fetchSingleUser(1)
+      fetchSingleUser()
     }
   }
 

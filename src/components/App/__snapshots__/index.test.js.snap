@@ -10,10 +10,6 @@ exports[`render <App /> correctly 1`] = `
     />
     <Route
       component={[Function]}
-      path="/profile"
-    />
-    <Route
-      component={[Function]}
       exact={true}
       path="/users"
     />
@@ -22,8 +18,12 @@ exports[`render <App /> correctly 1`] = `
       path="/users/:id"
     />
     <Route
-      component={[Function]}
+      path="/profile"
+      render={[Function]}
+    />
+    <Route
       path="/login"
+      render={[Function]}
     />
     <Route
       component={[Function]}

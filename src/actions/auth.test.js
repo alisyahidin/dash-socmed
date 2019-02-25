@@ -3,12 +3,10 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT,
-  CHECK_AUTHENTICATED_USER,
   login,
   loginSuccess,
   loginFailure,
   logout,
-  checkAuthenticatedUser
 } from './auth'
 
 it('test login action creators', () => {
@@ -35,8 +33,4 @@ it('test loginSuccess action creators', () => {
 
 it('test logout action creators', () => {
   expect(logout()).toEqual({type: LOGOUT})
-})
-
-it('test checkAuthenticatedUser action creators', () => {
-  expect(checkAuthenticatedUser()).toEqual({type: CHECK_AUTHENTICATED_USER})
 })

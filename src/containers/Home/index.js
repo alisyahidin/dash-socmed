@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Container, Row, Col } from 'react-bootstrap'
 
 import withNavbar from '../../hoc/withNavbar'
+import Protected from '../../components/Protected/'
 import Card from '../../components/Card/'
 import PostForm from '../../components/PostForm/'
 import Post from '../../components/Card/Post/'
@@ -41,9 +42,11 @@ class Home extends Component {
               </Card>
             </Col>
             <Col md={4}>
-              <Card className="mb-4">
-                <PostForm />
-              </Card>
+              <Protected>
+                <Card className="mb-4">
+                  <PostForm />
+                </Card>
+              </Protected>
               <Footer />
             </Col>
           </Row>
