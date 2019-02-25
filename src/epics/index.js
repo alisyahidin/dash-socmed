@@ -6,11 +6,17 @@ import {
   fetchSinglePostEpic
 } from './singlePost'
 import fetchSingleUserEpic from './singleUser'
+import {
+  loginEpic,
+  checkAuthenticatedUserEpic
+} from './auth'
 
 export const rootEpic = combineEpics(
   fetchUserEpic,
   fetchPostEpic,
   openModalPostEpic,
   fetchSinglePostEpic,
-  fetchSingleUserEpic
+  fetchSingleUserEpic,
+  loginEpic,
+  checkAuthenticatedUserEpic,
 )
