@@ -81,7 +81,7 @@ class Login extends Component {
               {auth.loading ? 'Loading': 'Login'}
             </Button>
           </Form>
-          <Link to="/">Go to Home</Link>
+          <Link className="mt-5" to="/">Go to Home</Link>
         </div>
         <div className="h-25 text-secondary d-flex align-items-center justify-content-center">
           Copyright &copy; 2019

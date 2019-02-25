@@ -23,15 +23,16 @@ export const fetchSinglePostEpic = (action$, state$, { axios$ }) => {
     .ofType(FETCH_SINGLE_POST)
     .pipe(
       mergeMap(action => axios$(`/posts/${action.id}`).pipe(
-        map(posts => posts.data),
-        mergeMap(post => axios$(`/comments?postId=${post.id}`).pipe(
-          map(comments => comments.data),
-          map(comments => fetchSinglePostSuccess({comments, ...post})),
-          takeUntil(action$.ofType(CLEAR_SINGLE_POST)),
-          catchError(error => {
-            console.log(error)
-            return of(fetchSinglePostFailure('Cannot fetch Single Post'))
-          })
+        mergeMap(post => axios$(`/users/${post.userId}`).pipe(
+          map(user => ({user: user.data, ...post.data})),
+          mergeMap(post => axios$(`/comments?postId=${post.id}`).pipe(
+            map(comments => fetchSinglePostSuccess({comments: comments.data, ...post})),
+            takeUntil(action$.ofType(CLEAR_SINGLE_POST)),
+            catchError(error => {
+              console.log(error)
+              return of(fetchSinglePostFailure('Cannot fetch Single Post'))
+            })
+          ))
         ))
       ))
     )

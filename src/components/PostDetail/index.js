@@ -34,7 +34,7 @@ const PostDetail = ({
             <h5 className="d-flex align-items-center mt-sm-2">
               by&nbsp;-&nbsp;
               <Link to="/profile" className="author d-flex align-items-center">
-                  Ali <span className="author__username">@ali</span>
+                  {singlePost.data.user.name} <span className="author__username">@{singlePost.data.user.username}</span>
               </Link>
             </h5>
           </Modal.Title>
