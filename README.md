@@ -5,7 +5,12 @@ A social media dashboard.
 
 Demo
 ----
-[Click here](https://github.com/alisyahidin/dash-socmed)
+[Click here](https://dash-socmed.herokuapp.com/)
+
+Login User
+------------
+
+To login into dash-socmed, you can use username and email of one of users from [https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users)
 
 Run Locally
 ------------

@@ -1,30 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render <PostForm /> correctly 1`] = `
-<ForwardRef(Bootstrap(Form))
-  className="text-center w-100 d-flex flex-column justify-content-center"
->
-  <ForwardRef(Bootstrap(FormGroup))
-    controlId="title"
-  >
-    <ForwardRef(ContextTransform)
-      placeholder="Title"
-      type="text"
-    />
-  </ForwardRef(Bootstrap(FormGroup))>
-  <ForwardRef(Bootstrap(FormGroup))
-    controlId="body"
-  >
-    <ForwardRef(ContextTransform)
-      as="textarea"
-      placeholder="Body"
-    />
-  </ForwardRef(Bootstrap(FormGroup))>
-  <ForwardRef(Bootstrap(Button))
-    className="mt-sm-2 mx-auto"
-    variant="primary"
-  >
-    Create Post
-  </ForwardRef(Bootstrap(Button))>
-</ForwardRef(Bootstrap(Form))>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
