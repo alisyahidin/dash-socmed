@@ -22,13 +22,22 @@ export const fetchSingleAlbumEpic = (action$, state$, { axios$ }) => {
   return action$
     .ofType(FETCH_SINGLE_ALBUM)
     .pipe(
-      mergeMap(action => axios$(`/posts/${action.id}`).pipe(
-        mergeMap(post => axios$(`/users/${post.data.userId}`).pipe(
-          map(user => ({user: user.data, ...post.data})),
-          mergeMap(post => axios$(`/comments?postId=${post.id}`).pipe(
-            map(comments => fetchSingleAlbumSuccess({comments: comments.data, ...post})),
-            takeUntil(action$.ofType(CLEAR_SINGLE_ALBUM)),
-          ))
+      mergeMap(action => axios$(`/albums/${action.id}`).pipe(
+        mergeMap(album  => axios$(`/photos?albumId=${album.data.id}`).pipe(
+          map(photos => {
+            const photo = photos.data.map(singlePhoto => {
+              const { url, thumbnailUrl, title, ...photo } = singlePhoto
+              return {
+                original: url,
+                thumbnail: thumbnailUrl,
+                originalTitle: title,
+                description: title,
+                ...photo
+              }
+            })
+            return fetchSingleAlbumSuccess({photos: photo, ...album.data})
+          }),
+          takeUntil(action$.ofType(CLEAR_SINGLE_ALBUM)),
         ))
       )),
       catchError(error => {

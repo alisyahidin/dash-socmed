@@ -2,20 +2,27 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Modal } from 'react-bootstrap'
+import ImageGallery from 'react-image-gallery';
 
-import { openModal } from '../../actions/album'
+import {
+  openModal as openAlbumModal,
+  clearSingleAlbum
+} from '../../actions/album'
 
 import PostLoader from '../Loader/PostLoader'
+import img from '../../assets/images/placeholder.png'
 
 const AlbumDetail = ({
   album,
-  openModal,
+  openAlbumModal,
+  clearSingleAlbum
 }) => (
   <Modal
     id="album-detail"
     size="lg"
     show={album.open}
-    onHide={() => openModal(false)}
+    onHide={() => openAlbumModal(false)}
+    onExiting={clearSingleAlbum}
   >
     {album.error && <h3 className="w-100 text-center my-5">{album.error}</h3>}
     {album.loading && (
@@ -27,11 +34,17 @@ const AlbumDetail = ({
       <>
         <Modal.Header closeButton>
           <Modal.Title>
-            <h4>{album.data.title}</h4>
+            <h4><b>Album: </b>{album.data.title}</h4>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="px-4">
-          {console.log(album)}
+          <ImageGallery
+            items={album.data.photos}
+            lazyLoad
+            showFullscreenButton={false}
+            showPlayButton={false}
+            defaultImage={img}
+          />
         </Modal.Body>
       </>
     )}
@@ -42,7 +55,8 @@ const mapStateToProps = state => ({ ...state })
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
-    openModal
+    openAlbumModal,
+    clearSingleAlbum
   }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlbumDetail)

@@ -89,7 +89,7 @@ class Profile extends Component {
                       </Tab>
                       <Tab eventKey="photos" title="Album Photos">
                         <Tab.Container id="albums" defaultActiveKey="default">
-                          <Nav variant="pills" className="mt-3 flex-column">
+                          <Nav className="mt-3 flex-column">
                             {singleUser.loading && <Card><ProfileLoader /></Card>}
                             {singleUser.data !== null && singleUser.data.albums.map(album => (
                               <Nav.Item key={album.id}>
