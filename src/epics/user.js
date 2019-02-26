@@ -7,11 +7,11 @@ import {
   fetchUserFailure
 } from "../actions/user"
 
-const fetchUserEpic = (action$, state$, { axios$ }) => {
+const fetchUserEpic = (action$, state$, { fetch$ }) => {
   return action$
     .ofType(FETCH_USER)
     .pipe(
-      mergeMap(action => axios$('/users').pipe(
+      mergeMap(action => fetch$('/users').pipe(
         map(response => fetchUserSuccess(response.data)),
         catchError(error => {
           console.log(error)

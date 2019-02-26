@@ -7,11 +7,11 @@ import {
 } from '../actions/auth'
 import storage from '../lib/storage'
 
-export const loginEpic = (action$, state$, { axios$ }) => {
+export const loginEpic = (action$, state$, { fetch$ }) => {
   return action$
     .ofType(LOGIN)
     .pipe(
-      mergeMap(action => axios$('/users').pipe(
+      mergeMap(action => fetch$('/users').pipe(
         map(users => users.data.filter(user =>
           user.username === action.payload.username &&
           user.email === action.payload.email

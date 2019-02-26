@@ -8,14 +8,14 @@ import {
 } from '../actions/post'
 import { random } from '../helper'
 
-const fetchPostEpic = (action$, state$, { axios$ }) => {
+const fetchPostEpic = (action$, state$, { fetch$ }) => {
   return action$
     .ofType(FETCH_POST)
     .pipe(
-      mergeMap(action => axios$('/posts').pipe(
+      mergeMap(action => fetch$('/posts').pipe(
         mergeMap(response => from(response.data).pipe(
           take(random(5, 50)),
-          mergeMap(post => axios$(`/users/${post.userId}`).pipe(
+          mergeMap(post => fetch$(`/users/${post.userId}`).pipe(
             map(user => {
               const posts = [...state$.value.post.data]
               posts.push({user: user.data, ...post})

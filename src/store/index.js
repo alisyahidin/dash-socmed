@@ -8,8 +8,8 @@ import { rootEpic } from '../epics/'
 
 const epicMiddleware = createEpicMiddleware({
   dependencies: {
-    axios$: (url, data = null) =>
-      from(axios(url, data))
+    fetch$: url => from(axios.get(url)),
+    post$: (url, data, options = {}) => from(axios.post(url, data, options)),
   }
 })
 const store = createStore(rootReducer, applyMiddleware(epicMiddleware))

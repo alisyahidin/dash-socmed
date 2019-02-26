@@ -3,6 +3,9 @@ import {
   FETCH_SINGLE_POST,
   FETCH_SINGLE_POST_SUCCESS,
   FETCH_SINGLE_POST_FAILURE,
+  CREATE_SINGLE_POST,
+  CREATE_SINGLE_POST_SUCCESS,
+  CREATE_SINGLE_POST_FAILURE,
   CLEAR_SINGLE_POST,
 } from '../actions/singlePost'
 
@@ -20,6 +23,7 @@ const singlePostReducer = (state = initialState, action) => {
         ...state,
         open: action.open,
       }
+    case CREATE_SINGLE_POST:
     case FETCH_SINGLE_POST:
       return {
         ...state,
@@ -32,12 +36,18 @@ const singlePostReducer = (state = initialState, action) => {
         loading: true,
         data: null
       }
+    case CREATE_SINGLE_POST_SUCCESS:
+      return {
+        loading: false,
+        data: null,
+      }
     case FETCH_SINGLE_POST_SUCCESS:
       return {
         ...state,
         data: action.payload,
         loading: false,
       }
+    case CREATE_SINGLE_POST_FAILURE:
     case FETCH_SINGLE_POST_FAILURE:
       return {
         ...state,

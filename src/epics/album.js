@@ -18,12 +18,12 @@ export const openModalAlbumEpic = action$ => action$.ofType(OPEN_MODAL_ALBUM).pi
   )
 )
 
-export const fetchSingleAlbumEpic = (action$, state$, { axios$ }) => {
+export const fetchSingleAlbumEpic = (action$, state$, { fetch$ }) => {
   return action$
     .ofType(FETCH_SINGLE_ALBUM)
     .pipe(
-      mergeMap(action => axios$(`/albums/${action.id}`).pipe(
-        mergeMap(album  => axios$(`/photos?albumId=${album.data.id}`).pipe(
+      mergeMap(action => fetch$(`/albums/${action.id}`).pipe(
+        mergeMap(album  => fetch$(`/photos?albumId=${album.data.id}`).pipe(
           map(photos => {
             const photo = photos.data.map(singlePhoto => {
               const { url, thumbnailUrl, title, ...photo } = singlePhoto

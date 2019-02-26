@@ -3,7 +3,8 @@ import fetchUserEpic from './user'
 import fetchPostEpic from './post'
 import {
   openModalPostEpic,
-  fetchSinglePostEpic
+  fetchSinglePostEpic,
+  createSinglePostEpic,
 } from './singlePost'
 import fetchSingleUserEpic from './singleUser'
 import { loginEpic } from './auth'
@@ -17,6 +18,7 @@ export const rootEpic = combineEpics(
   fetchPostEpic,
   openModalPostEpic,
   fetchSinglePostEpic,
+  createSinglePostEpic,
   fetchSingleUserEpic,
   loginEpic,
   openModalAlbumEpic,
