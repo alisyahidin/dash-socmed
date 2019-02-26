@@ -4,8 +4,8 @@ import classNames from 'classnames'
 import { Card as BsCard } from 'react-bootstrap'
 import './style.scss'
 
-const Card = ({children, className, align}) => (
-  <BsCard className={classNames("my-card", className)}>
+const Card = ({children, className, align, ...props}) => (
+  <BsCard {...props} className={classNames("my-card", className)}>
     <BsCard.Body
       className={`my-card__body my-card__body--${align}`}
     >

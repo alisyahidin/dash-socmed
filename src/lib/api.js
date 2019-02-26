@@ -3,7 +3,7 @@ import { MAIN_URI } from '../constants/api'
 
 const instance = axios.create({
   baseURL: MAIN_URI,
-  timeout: 10000,
+  timeout: 20000,
   headers: {
     'Access-Control-Allow-Origin': '*'
   }

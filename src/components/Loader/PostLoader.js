@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from "react-content-loader"
 
-import { random } from './helper'
+import { random } from '../../helper'
 import './style.scss'
 
 const PostLoader = ({repeat, long, ...props}) => [...Array(repeat)].map((_, i) => (

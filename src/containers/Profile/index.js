@@ -90,7 +90,7 @@ class Profile extends Component {
                       <Tab eventKey="photos" title="Album Photos">
                         <Tab.Container id="albums" defaultActiveKey="default">
                           <Nav className="mt-3 flex-column">
-                            {singleUser.loading && <Card><ProfileLoader /></Card>}
+                            {singleUser.loading && <Card style={{ minHeight: 300 }}><PostLoader repeat={2} /></Card>}
                             {singleUser.data !== null && singleUser.data.albums.map(album => (
                               <Nav.Item key={album.id}>
                                 <Nav.Link

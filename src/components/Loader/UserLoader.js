@@ -1,6 +1,6 @@
 import React from 'react'
 import ContentLoader from "react-content-loader"
-import { random } from './helper'
+import { random } from '../../helper'
 
 const UserLoader = ({repeat, ...props}) => [...Array(repeat)].map((_, i) => (
   <ContentLoader

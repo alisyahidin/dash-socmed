@@ -37,7 +37,7 @@ class Home extends Component {
                 {post.loading && <PostLoader repeat={3} />}
                 {post.error && <h3>{post.error}</h3>}
                 {post.data.map((data, index) => (
-                  <Post key={index} {...data} />
+                  <Post key={index} author={data.user} {...data} />
                 ))}
               </Card>
             </Col>
